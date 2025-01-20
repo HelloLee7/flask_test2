@@ -26,12 +26,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about') }}">정보!</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('login') }}">로그인</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('signup') }}">회원가입</a>
-                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">로그아웃</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">로그인</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('signup') }}">회원가입</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
