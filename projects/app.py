@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
-
 app = Flask(__name__)
 
 # MySQL 데이터베이스 연결 설정 (본인의 정보로 변경!)
@@ -41,6 +40,11 @@ def cuisine_recipes(cuisine_id):
 def recipe_detail(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     return render_template('recipe_detail.html', recipe=recipe)
+
+# 정보 페이지 라우트 추가
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .container {
-            margin-top: 30px;  
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -24,7 +24,7 @@
                     <a class="nav-link" href="{{ url_for('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">정보!</a>
+                    <a class="nav-link" href="{{ url_for('about') }}">정보!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">로그인</a>
