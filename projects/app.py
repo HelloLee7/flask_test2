@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 
 # MySQL 데이터베이스 연결 설정 (본인의 정보로 변경!)

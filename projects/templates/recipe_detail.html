@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ recipe.name }} 정보</title>
-    <link rel="stylesheet" href="../static/style.css">
-</head>
-<body>
-    <div class="recipe-details">
-        <h1>{{ recipe.name }}</h1>
-        <h2>재료</h2>
-        <p>{{ recipe.ingredients }}</p>
-        <h2>조리법</h2>
-        <p>{{ recipe.instructions }}</p>
-        <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.name }} 정보{% endblock %}
+
+{% block content %}
+<div class="recipe-details">
+    <h1>{{ recipe.name }}</h1>
+    <h2>재료</h2>
+    <p>{{ recipe.ingredients }}</p>
+    <h2>조리법</h2>
+    <p>{{ recipe.instructions }}</p>
+    <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
+</div>
+{% endblock %}
