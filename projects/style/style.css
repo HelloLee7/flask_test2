@@ -1,0 +1,71 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+h1, h2 {
+    color: #e67e22; /* 주황색 강조 */
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #3498db; /* 파란색 링크 */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* index.html 스타일 */
+.cuisine-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cuisine-buttons button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cuisine-buttons button:hover {
+    background-color: #f0f0f0;
+}
+
+/* recipe_detail.html 스타일 */
+.recipe-details h2 {
+    margin-top: 20px;
+}
+
+.recipe-details p {
+    line-height: 1.6;
+}
+
+/* recipes.html 스타일 */
+.recipe-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.recipe-list li:last-child {
+    border-bottom: none;
+}

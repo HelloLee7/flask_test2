@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>맛있는 레시피</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <h1>음식 종류</h1>
+    <div class="cuisine-buttons">
+        {% for cuisine in cuisines %}
+        <a href="{{ url_for('cuisine_recipes', cuisine_id=cuisine.id) }}">
+            <button>{{ cuisine.name }}</button>
+        </a>
+        {% endfor %}
+    </div>
+    <h1>새로 나온 레시피</h1>
+    <ul>
+        {% for recipe in new_recipes %}
+        <li><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
