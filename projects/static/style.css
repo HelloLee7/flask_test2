@@ -103,8 +103,11 @@ a:hover {
 .slide img {
     width: 100%;
     height: auto;
-    display: block; /* Remove extra bottom space for images */
-}
+    display: block; 
+    padding: 5px;
+    background-color: rgb(231, 139, 19);
+    box-shadow: 10px 10px;
+}/* Remove extra bottom space for images */
 
 .fade {
   -webkit-animation-name: fade;
