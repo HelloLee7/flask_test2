@@ -91,16 +91,19 @@ a:hover {
 .slide {
     min-width: 100%;
     display: none; /* Initially hide all slides */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    display: block; /* Show the active slide */
+    opacity: 1;
 }
 
 .slide img {
     width: 100%;
     height: auto;
     display: block; /* Remove extra bottom space for images */
-}
-
-.slide.active {
-    display: block; /* Show the active slide */
 }
 
 .fade {
@@ -118,4 +121,64 @@ a:hover {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.recipe-item {
+    width: calc(33.333% - 20px); /* Adjust width for 3 items per row and spacing */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below image */
+}
+
+.recipe-item-content {
+    padding: 15px;
+}
+
+.recipe-item-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.recipe-item-content p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.recipe-item-content a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #007bff; /* Example button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 992px) {
+    .recipe-item {
+        width: calc(50% - 20px); /* 2 items per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .recipe-item {
+        width: 100%; /* 1 item per row on small screens */
+    }
 }

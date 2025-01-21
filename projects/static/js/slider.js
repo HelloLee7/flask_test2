@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
-    let slideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    let slideInterval = setInterval(nextSlide, 2000); // Change slide every 5 seconds
 
     function nextSlide() {
         slides[currentSlide].classList.remove('active');

@@ -3,11 +3,25 @@
 {% block title %}{{ cuisine.name }} 레시피{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <h1>{{ cuisine.name }} 레시피</h1>
-<ul class="recipe-list">
+
+<div class="recipe-grid">
     {% for recipe in recipes %}
-    <li><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
+    <div class="recipe-item">
+        {% if recipe.food_img %}
+            <img src="{{ url_for('static', filename='img/' ~ recipe.food_img) }}" alt="{{ recipe.name }}">
+        {% else %}
+            <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No Image Available">
+        {% endif %}
+        <div class="recipe-item-content">
+            <h3>{{ recipe.name }}</h3>
+            <p>레시피 간단 설명이 들어갈 부분입니다. 필요하다면 {{ recipe.description|truncate(100) }} 처럼 줄여서 사용할 수도 있습니다.</p>
+            <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">자세히 보기</a>
+        </div>
+    </div>
     {% endfor %}
-</ul>
+</div>
+
 <p><a href="{{ url_for('index') }}">홈으로</a></p>
 {% endblock %}
