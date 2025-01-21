@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import render_template, session
+
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'your_default_secret_key'
@@ -112,6 +115,7 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

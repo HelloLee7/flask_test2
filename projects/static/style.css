@@ -182,3 +182,21 @@ a:hover {
         width: 100%; /* 1 item per row on small screens */
     }
 }
+
+.recipe-item img {
+    width: 100%; /* 부모 요소에 꽉 채우도록 설정 */
+    height: 300px; /* 원하는 고정 높이 설정 */
+    object-fit: cover; /* 이미지가 비율을 유지하며 채우도록 설정 */
+    object-position: center; /* 이미지를 중앙에 위치하도록 설정 */
+}
+
+@font-face {
+    font-family: 'dimibang_new';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.1/dimibang_new.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'dimibang_new', sans-serif;
+}
