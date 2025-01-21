@@ -17,4 +17,17 @@
     <li><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
     {% endfor %}
 </ul>
+
+<!--here-->
+<div class="image-slider">
+    <div class="slider-container">
+        {% for food_ani in food_ani_images %}
+        <div class="slide fade">
+            <img src="{{ url_for('static', filename='img/' + food_ani.food_ani) }}" style="width:100%">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
 {% endblock %}

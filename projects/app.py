@@ -31,6 +31,13 @@ class Recipe(db.Model):
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
     food_img = db.Column(db.String(100))  # 이미지 파일 이름을 저장할 필드 추가
 
+class FoodAni(db.Model):
+    __tablename__ = 'food_ani'
+    id = db.Column(db.Integer, primary_key=True)
+    food_ani = db.Column(db.String(100), nullable=False)
+
+ 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -39,8 +46,10 @@ def load_user(user_id):
 @app.route('/')
 def index():
     cuisines = Cuisine.query.all()
-    new_recipes = Recipe.query.order_by(Recipe.id.desc()).limit(5).all() # 최근 5개 음식
-    return render_template('index.html', cuisines=cuisines, new_recipes=new_recipes)
+    new_recipes = Recipe.query.order_by(Recipe.id.desc()).limit(5).all()
+    food_ani_images = FoodAni.query.all()  # food_ani 테이블의 모든 데이터 가져오기
+    return render_template('index.html', cuisines=cuisines, new_recipes=new_recipes, food_ani_images=food_ani_images)
+
 
 # 음식 종류별 라우트
 @app.route('/cuisine/<int:cuisine_id>')
