@@ -5,11 +5,15 @@
 {% block content %}
 <div class="recipe-details">
     <h1>{{ recipe.name }}</h1>
+
+    <h1>사진</h1>
+    <img src="{{ url_for('static', filename='img/' ~ recipe.food_img) }}" alt="{{ recipe.name }} 사진" class="recipe-image">
+
     <h2>재료</h2>
     <p>{{ recipe.ingredients }}</p>
     <h2>조리법</h2>
     <p>{{ recipe.instructions }}</p>
-    <h2>추천!</h2>
+    <h2>test=추천!</h2>
     <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
 </div>
 {% endblock %}

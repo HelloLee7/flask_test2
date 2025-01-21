@@ -29,6 +29,7 @@ class Recipe(db.Model):
     ingredients = db.Column(db.Text)
     instructions = db.Column(db.Text)
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
+    food_img = db.Column(db.String(100))  # 이미지 파일 이름을 저장할 필드 추가
 
 @login_manager.user_loader
 def load_user(user_id):
