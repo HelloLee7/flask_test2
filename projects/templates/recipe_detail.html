@@ -2,6 +2,11 @@
 
 {% block title %}{{ recipe.name }} 정보{% endblock %}
 
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="recipe-details">
     <h1>{{ recipe.name }}</h1>
@@ -15,8 +20,17 @@
     <p>{{ recipe.instructions }}</p>
     <h2>추천!</h2>
     <button id="recommend-btn">추천 수: <span id="recommend-count">0</span></button>
+
+    <br><br>
     <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
 </div>
-<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
-<script src="{{ url_for('static', filename='js/gaechu.js') }}"></script>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <script src="{{ url_for('static', filename='js/gaechu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider.js') }}"></script>
 {% endblock %}
