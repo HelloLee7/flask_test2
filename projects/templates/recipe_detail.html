@@ -13,7 +13,10 @@
     <p>{{ recipe.ingredients }}</p>
     <h2>조리법</h2>
     <p>{{ recipe.instructions }}</p>
-    <h2>test=추천!</h2>
+    <h2>추천!</h2>
+    <button id="recommend-btn">추천 수: <span id="recommend-count">0</span></button>
     <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
 </div>
+<script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+<script src="{{ url_for('static', filename='js/gaechu.js') }}"></script>
 {% endblock %}
