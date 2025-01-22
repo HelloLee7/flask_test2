@@ -19,11 +19,13 @@
     <h2>조리법</h2>
     <p>{{ recipe.instructions }}</p>
     <h2>추천!</h2>
-    <button id="recommend-btn">추천 수: <span id="recommend-count">0</span></button>
+    <button id="recommend-btn">추천 수: <span id="recommend-count">{{ recipe.recommendation_count }}</span></button> <!-- 초기 추천 수 표시 -->
+    <p id="recommend-message" style="color: darkorange;"></p>
 
     <br><br>
     <p><a href="{{ url_for('cuisine_recipes', cuisine_id=recipe.cuisine_id) }}">목록으로</a></p>
 </div>
+<input type="hidden" id="recipe-id" value="{{ recipe.id }}">
 {% endblock %}
 
 {% block scripts %}

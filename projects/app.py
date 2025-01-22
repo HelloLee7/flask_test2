@@ -1,11 +1,10 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import render_template, session
-
-
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'your_default_secret_key'
@@ -32,14 +31,19 @@ class Recipe(db.Model):
     ingredients = db.Column(db.Text)
     instructions = db.Column(db.Text)
     cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), nullable=False)
-    food_img = db.Column(db.String(100))  # 이미지 파일 이름을 저장할 필드 추가
+    food_img = db.Column(db.String(100))
+    recommendation_count = db.Column(db.Integer, default=0) # 추천 수 필드 추가 (기본값 0)
 
 class FoodAni(db.Model):
     __tablename__ = 'food_ani'
     id = db.Column(db.Integer, primary_key=True)
     food_ani = db.Column(db.String(100), nullable=False)
 
- 
+class RecipeRecommendation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipe.id'), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -50,9 +54,8 @@ def load_user(user_id):
 def index():
     cuisines = Cuisine.query.all()
     new_recipes = Recipe.query.order_by(Recipe.id.desc()).limit(5).all()
-    food_ani_images = FoodAni.query.all()  # food_ani 테이블의 모든 데이터 가져오기
+    food_ani_images = FoodAni.query.all()
     return render_template('index.html', cuisines=cuisines, new_recipes=new_recipes, food_ani_images=food_ani_images)
-
 
 # 음식 종류별 라우트
 @app.route('/cuisine/<int:cuisine_id>')
@@ -65,7 +68,7 @@ def cuisine_recipes(cuisine_id):
 @app.route('/recipe/<int:recipe_id>')
 def recipe_detail(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
-    return render_template('recipe_detail.html', recipe=recipe)
+    return render_template('recipe_detail.html', recipe=recipe) # recipe 객체 그대로 템플릿에 전달
 
 # 정보 페이지 라우트 추가
 @app.route('/about')
@@ -115,7 +118,32 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
-    
+
+# 추천 기능 라우트
+@app.route('/recommend_recipe', methods=['POST'])
+def recommend_recipe():
+    recipe_id = request.form.get('recipe_id')
+    recipe = Recipe.query.get_or_404(recipe_id) # 레시피 객체 로드
+
+    if not current_user.is_authenticated:
+        return jsonify({'message': '로그인을 하지 않았습니다'}), 401
+
+    user_id = current_user.id
+    existing_recommendation = RecipeRecommendation.query.filter_by(user_id=user_id, recipe_id=recipe_id).first()
+
+    if existing_recommendation:
+        return jsonify({'message': '이미 추천을 눌렀습니다'}), 409
+
+    new_recommendation = RecipeRecommendation(user_id=user_id, recipe_id=recipe_id)
+    db.session.add(new_recommendation)
+
+    recipe.recommendation_count += 1 # 추천 수 증가
+    db.session.commit()
+
+    return jsonify({'message': '추천 완료', 'recommendation_count': recipe.recommendation_count}), 200 # 업데이트된 추천 수 반환
+
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all() # 테이블 생성 (app context 내에서 실행)
     app.run(debug=True)
