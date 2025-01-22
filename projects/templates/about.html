@@ -1,10 +1,80 @@
 {% extends "base.html" %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
 {% block title %}FoodFighter 정보{% endblock %}
 
+
 {% block content %}
-<h1 style="margin-bottom: 30px;">FoodFighter 에 오신것을 환영합니다</h1>
-<div class="the-details">
-    <h3>자신의 레시피를 공유하고 새로운 요리에 대해 알아보세요!</h3>
+<div class="container">
+    <h1 style="margin-bottom: 30px; text-align: center;">FoodFighter 에 오신것을 환영합니다</h1>
+    <div class="the-details">
+        <h3>자신의 레시피를 공유하고 새로운 요리에 대해 알아보세요!</h3>
+        <h3>오늘의 요리를 찾아보아요</h3>
+        <h3>FoodFighter 웹 사이트 국가 공인 대상!!!<span style="color: gray; font-size: 0.6em;"> -예정-</span></h3>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">🍔 오늘의 추천 메뉴</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴1">
+                <h3>메뉴 이름 1</h3>
+                <p>메뉴 설명 1</p>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴2">
+                <h3>메뉴 이름 2</h3>
+                <p>메뉴 설명 2</p>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴3">
+                <h3>메뉴 이름 3</h3>
+                <p>메뉴 설명 3</p>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴4">
+                <h3>메뉴 이름 4</h3>
+                <p>메뉴 설명 4</p>
+            </div>
+            <!-- 추천 메뉴 아이템 추가 -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">🔥 인기 레시피</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피1">
+                <h3>레시피 이름 1</h3>
+                <p>레시피 간단 설명 1</p>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피2">
+                <h3>레시피 이름 2</h3>
+                <p>레시피 간단 설명 2</p>
+            </div>
+            <div class="grid-item">
+                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피3">
+                <h3>레시피 이름 3</h3>
+                <p>레시피 간단 설명 3</p>
+            </div>
+            <!-- 인기 레시피 아이템 추가 -->
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">📢 FoodFighter 소식</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <h3>새로운 기능 업데이트</h3>
+                <p>FoodFighter 에 새로운 기능이 업데이트 되었습니다. ...</p>
+            </div>
+            <div class="grid-item">
+                <h3>이번 주 인기 레시피</h3>
+                <p>이번 주 FoodFighter 에서 가장 인기 있었던 레시피들을 소개합니다. ...</p>
+            </div>
+            <!-- FoodFighter 소식 아이템 추가 -->
+        </div>
+    </div>
+
 </div>
 {% endblock %}
