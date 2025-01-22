@@ -2,6 +2,10 @@
 
 {% block title %}맛있는 레시피{% endblock %}
 
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+{% endblock %}
+
 {% block content %}
 <h1>음식 종류</h1>
 <div class="cuisine-buttons">
