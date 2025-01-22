@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>레시피 포스팅</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>레시피 포스팅</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">음식 이름</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">종류 선택</label><br>
+            {% for cuisine in cuisines %}
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cuisine_id" id="cuisine{{ cuisine.id }}" value="{{ cuisine.id }}" required>
+                <label class="form-check-label" for="cuisine{{ cuisine.id }}">{{ cuisine.name }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">재료</label>
+            <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="instructions" class="form-label">만드는 방법</label>
+            <textarea class="form-control" id="instructions" name="instructions" rows="7" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="food_img" class="form-label">음식 사진</label>
+            <input type="file" class="form-control" id="food_img" name="food_img" accept="image/*">
+            <div class="form-text">jpg, png, gif 형식의 이미지를 업로드해주세요. (선택 사항)</div>
+        </div>
+        <button type="submit" class="btn btn-primary">포스팅하기</button>
+    </form>
+</div>
+{% endblock %}
