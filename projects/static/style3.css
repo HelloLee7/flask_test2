@@ -1,0 +1,29 @@
+/*-------------------------------백그라*/
+
+.container {
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.8); /* 컨테이너 배경에 반투명 흰색 추가 (선택 사항) */
+    padding: 20px; /* 컨테이너 내부 여백 추가 (선택 사항) */
+    border-radius: 10px; /* 컨테이너 모서리 둥글게 (선택 사항) */
+}
+.signup-link-container { /* 회원가입 링크 컨테이너 추가 */
+    position: relative; /* 상대 위치 설정 */
+    display: inline-block; /* 인라인 블록으로 설정하여 내용물 크기에 맞게 조정 */
+}
+.signup-link-static { /* 고정된 회원가입 링크 스타일 */
+    position: absolute; /* 절대 위치 설정 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 컨테이너 전체 너비 */
+    height: 100%; /* 컨테이너 전체 높이 */
+    z-index: 1; /* 애니메이션 링크보다 아래에 위치 */
+    /* 필요에 따라 배경색을 투명하게 설정하여 시각적으로 숨김 */
+    /* background-color: transparent; */
+}
+.signup-link.animated-link { /* 애니메이션 회원가입 링크 스타일 (z-index 높임) */
+    position: relative; /* 상대 위치 설정 (z-index 적용 위해) */
+    z-index: 2; /* 고정 링크보다 위에 위치 */
+}
+
+/*-------------------------------백그라*/
+
