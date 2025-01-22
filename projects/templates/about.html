@@ -16,24 +16,24 @@
         <h2 class="section-title">🍔 오늘의 추천 메뉴</h2>
         <div class="grid-container">
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴1">
-                <h3>메뉴 이름 1</h3>
-                <p>메뉴 설명 1</p>
+                <img src="{{ url_for('static', filename='img/kimchi.jpg') }}" alt="추천메뉴1">
+                <h3>김치</h3>
+                <p>김치는 맛있다</p>
             </div>
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴2">
-                <h3>메뉴 이름 2</h3>
-                <p>메뉴 설명 2</p>
+                <img src="{{ url_for('static', filename='img/dongase.jpg') }}" alt="추천메뉴2">
+                <h3>돈까스</h3>
+                <p>돈까스 집이 열릴 기미가 안보임....</p>
             </div>
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴3">
-                <h3>메뉴 이름 3</h3>
-                <p>메뉴 설명 3</p>
+                <img src="{{ url_for('static', filename='img/pizza.jpg') }}" alt="추천메뉴3">
+                <h3>피자</h3>
+                <p>피자는 비싸다</p>
             </div>
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="추천메뉴4">
-                <h3>메뉴 이름 4</h3>
-                <p>메뉴 설명 4</p>
+                <img src="{{ url_for('static', filename='img/mandu.jpg') }}" alt="추천메뉴4">
+                <h3>만두</h3>
+                <p>만두는 비비고</p>
             </div>
             <!-- 추천 메뉴 아이템 추가 -->
         </div>
@@ -43,19 +43,20 @@
         <h2 class="section-title">🔥 인기 레시피</h2>
         <div class="grid-container">
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피1">
-                <h3>레시피 이름 1</h3>
-                <p>레시피 간단 설명 1</p>
+                <!--원한다면 db 꺼 가지고 와도 되지만 간단하게 가자-->
+                <img src="{{ url_for('static', filename='img/kimchi_jjigae.jpg') }}" alt="인기레시피1">
+                <h3>김치 찌개</h3>
+                <p>김치를 씻는것 부터 시작....</p>
             </div>
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피2">
-                <h3>레시피 이름 2</h3>
-                <p>레시피 간단 설명 2</p>
+                <img src="{{ url_for('static', filename='img/bibimbab.jpg') }}" alt="인기레시피2">
+                <h3>bibimbab</h3>
+                <p>우선 야채를 손질해야 한....</p>
             </div>
             <div class="grid-item">
-                <img src="{{ url_for('static', filename='placeholder.jpg') }}" alt="인기레시피3">
-                <h3>레시피 이름 3</h3>
-                <p>레시피 간단 설명 3</p>
+                <img src="{{ url_for('static', filename='img/kebab.jpg') }}" alt="인기레시피3">
+                <h3>캐밥</h3>
+                <p>이건 그냥 좀 사먹....</p>
             </div>
             <!-- 인기 레시피 아이템 추가 -->
         </div>
@@ -67,10 +68,14 @@
             <div class="grid-item">
                 <h3>새로운 기능 업데이트</h3>
                 <p>FoodFighter 에 새로운 기능이 업데이트 되었습니다. ...</p>
+                <h5>이제 포스팅 기능을 사용해보세요!</h5>
             </div>
             <div class="grid-item">
                 <h3>이번 주 인기 레시피</h3>
                 <p>이번 주 FoodFighter 에서 가장 인기 있었던 레시피들을 소개합니다. ...</p>
+                <h5>1위:김치찌개</h5>
+                <h5>2위:돈까스</h5>
+                <h5>3위:비빔밥</h5>
             </div>
             <!-- FoodFighter 소식 아이템 추가 -->
         </div>

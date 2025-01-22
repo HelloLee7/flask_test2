@@ -96,7 +96,7 @@ def post():
             filename = secure_filename(food_img.filename) # 파일 이름 안전하게 만들기
             image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename) # 저장 경로 설정
             food_img.save(image_path) # 파일 저장
-            image_path = '' + filename # DB에 저장할 웹 경로 (static/img/파일명)
+            image_path = '/' + filename # DB에 저장할 웹 경로 (static/img/파일명) # 수정된 부분
 
         new_recipe = Recipe(
             name=name,

@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             // fetch 요청 실패 또는 서버 에러 발생 시 처리
             console.error("추천 기능 에러:", error); // 개발자 콘솔에 자세한 에러 로그 출력
-            recommendMessage.textContent = `로그인 해주세요!`; // 사용자에게 간략한 오류 메시지 표시
+            recommendMessage.textContent = `nope!`; // 사용자에게 간략한 오류 메시지 표시
         });
     });
 });

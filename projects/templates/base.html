@@ -48,6 +48,7 @@
                 <li class="nav-item">
                     <a class="nav-link animated-link" href="{{ url_for('about') }}">정보!</a>
                 </li>
+               
                 {% if current_user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link animated-link" href="{{ url_for('logout') }}">로그아웃</a>
@@ -56,6 +57,9 @@
                         <a class="nav-link animated-link" href="{{ url_for('post') }}">포스팅</a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="{{ url_for('login') }}">로그인</a>
+                    </li>
                     <li class="nav-item signup-link-container">  <!-- 컨테이너 div 추가 -->
                         <a class="nav-link signup-link-static" href="{{ url_for('signup') }}">회원가입</a> <!-- 고정 링크 추가 -->
                         <a class="nav-link animated-link signup-link">회원가입</a> <!-- 애니메이션 링크 유지 -->
