@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
 
     <style>
-        ul {
+        .buckingwhite {
             background-color: rgba(255, 255, 255, 1); /* 반투명 흰색 배경 */
             padding: 10px; /* 배경색 영역에 패딩 추가 (선택 사항) */
             border-radius: 5px; /* 배경색 영역 모서리 둥글게 (선택 사항) */
@@ -24,7 +24,7 @@
     {% endfor %}
 </div>
 <h1>새로 나온 레시피</h1>
-<ul>
+<ul class="buckingwhite">
     {% for recipe in new_recipes %}
     <li><a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}">{{ recipe.name }}</a></li>
     {% endfor %}
