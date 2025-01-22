@@ -28,15 +28,3 @@
  
 
 /* 텍스트 배경색 추가 */
-h1 {
-  background-color: rgba(255, 255, 255, 0.7); /* 반투명 흰색 배경 */
-  padding: 5px 10px; /* 배경색 영역에 패딩 추가 (선택 사항) */
-  border-radius: 5px; /* 배경색 영역 모서리 둥글게 (선택 사항) */
-  display: inline-block; /* 배경색이 텍스트 너비만큼만 차지하도록 (선택 사항) */
-}
-
-ul {
-  background-color: rgba(255, 255, 255, 0.7); /* 반투명 흰색 배경 */
-  padding: 10px; /* 배경색 영역에 패딩 추가 (선택 사항) */
-  border-radius: 5px; /* 배경색 영역 모서리 둥글게 (선택 사항) */
-}
