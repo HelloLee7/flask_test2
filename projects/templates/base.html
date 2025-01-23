@@ -22,36 +22,44 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index') }}">FoodFighter!!</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link animated-link" href="{{ url_for('index') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link animated-link" href="{{ url_for('about') }}">정보!</a>
-                </li>
-
-                {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link animated-link" href="{{ url_for('logout') }}">로그아웃</a>
+        <div class="container-fluid">
+            <div class="navbar-brand-container"> <!-- foodfighter 컨테이너 -->
+                <a class="navbar-brand" href="/">FoodFighter</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse-left collapse navbar-collapse" id="navbarNav"> <!-- 메뉴 좌측 컨테이너 -->
+                <ul class="navbar-nav">
+                    <li class="nav-item-zero">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link animated-link" href="{{ url_for('post') }}">포스팅</a>
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
                     </li>
-                {% else %}
+                    {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link animated-link" href="{{ url_for('login') }}">로그인</a>
+                        <a class="nav-link" href="{{ url_for('post') }}">Post</a>
                     </li>
-                    <li class="nav-item signup-link-container">  <!-- 컨테이너 div 추가 -->
-                        <a class="nav-link signup-link-static" href="{{ url_for('signup') }}">회원가입</a> <!-- 고정 링크 추가 -->
-                        <a class="nav-link animated-link signup-link">회원가입</a> <!-- 애니메이션 링크 유지 -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
                     </li>
-                {% endif %}
-            </ul>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="navbar-search-container"> <!-- 검색창 우측 컨테이너 -->
+                <form class="d-flex" action="{{ url_for('search') }}" method="get">
+                    <input class="form-control me-2 search-input" type="search" placeholder="검색..." aria-label="Search" name="search">
+                    <button class="btn btn-outline-success search-button" type="submit">🔍</button>
+                </form>
+            </div>
         </div>
     </nav>
     <div class="container mt-4">

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}검색 결과{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>검색 결과</h1>
+
+    {% if query %}
+        <h2>검색어: {{ query }}</h2>
+    {% endif %}
+
+    {% if results %}
+        <div class="row">
+            {% for recipe in results %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    {% if recipe.food_img %}
+                        <img src="{{ url_for('static', filename='img/' ~ recipe.food_img) }}" class="card-img-top" alt="{{ recipe.name }} 사진">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='img/default_food.jpg') }}" class="card-img-top" alt="기본 이미지">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.name }}</h5>
+                        <p class="card-text">재료: {{ recipe.ingredients|truncate(50) }}</p>
+                        <a href="{{ url_for('recipe_detail', recipe_id=recipe.id) }}" class="btn btn-primary">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        {% if query %}
+            <p>검색 결과가 없습니다.</p>
+        {% else %}
+            <p>검색어를 입력해주세요.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

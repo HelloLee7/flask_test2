@@ -180,6 +180,15 @@ def recommend_recipe():
 
     return jsonify({'message': '추천 완료', 'recommendation_count': recipe.recommendation_count}), 200
 
+# 검색 기능 라우트 추가
+@app.route('/search')
+def search():
+    query = request.args.get('search') # 검색어 가져오기
+    if query:
+        search_results = Recipe.query.filter(Recipe.name.like(f'%{query}%')).all() # name 컬럼에서 검색어로 검색
+    else:
+        search_results = [] # 검색어가 없을 경우 빈 결과
+    return render_template('search_results.html', results=search_results, query=query)
 
 if __name__ == '__main__':
     with app.app_context():
