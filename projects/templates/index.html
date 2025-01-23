@@ -33,13 +33,28 @@
 <h1></h1>
 <br><br> 
 <!--here-->
-<div class="image-slider">
-    <div class="slider-container">
-        {% for food_ani in food_ani_images %}
-        <div class="slide fade">
-            <img src="{{ url_for('static', filename='img/' + food_ani.food_ani) }}" style="width:100%">
+<!--here-->
+<div class="homepage-container">
+    <div class="image-container">
+        <div class="image-slider">
+            <div class="slider-container">
+                {% for food_ani in food_ani_images %}
+                <div class="slide fade">
+                    <img src="{{ url_for('static', filename='img/' + food_ani.food_ani) }}" style="width:100%">
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="text-container">
+        <div class="orange-box">
+            <h2>요리하다~</h2>
+            <p>오늘도 요리를 해보아요. </p>
+            <p>맛있는 레시피를 찾고 계신다고요? 제 웹사이트에서 다양한 종류의 레시피를 만나보시죠! 새로운 레시피가 매일 업데이트는 안됩니다.</p>
+        </div>
     </div>
 </div>
 

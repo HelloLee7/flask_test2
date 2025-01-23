@@ -28,3 +28,69 @@
  
 
 /* 텍스트 배경색 추가 */
+/* homepage-container 스타일 */
+
+
+
+
+.homepage-container {
+    display: flex; /* flexbox 레이아웃 사용 */
+    width: 100%; /* 컨테이너 너비 100% */
+    max-width: 1200px; /* 최대 너비 설정 (선택 사항) */
+    margin: 0 auto; /* 가운데 정렬 (선택 사항) */
+    padding: 20px; /* 전체 컨테이너 패딩 (선택 사항) */
+}
+
+/* 이미지 컨테이너 스타일 */
+.image-container {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+    height: auto; /* 추가 또는 수정 */
+    overflow: hidden; /* 필요하다면 유지 */
+}
+
+/* 이미지 슬라이더 스타일 (기존 스타일 유지, 필요에 따라 조정) */
+.image-slider {
+    /* ... 기존 image-slider 스타일 ... */
+    width: 100%; /* 이미지 슬라이더 너비 100% */
+    height: auto; /* 높이 자동 조절 */
+    overflow: hidden; /* 이미지 넘침 방지 */
+}
+
+.image-slider .slider-container img {
+    width: 100%; /* 이미지 너비 100% - 부모 컨테이너에 맞춤 */
+    height: auto; /* 이미지 높이 자동 조절 - 비율 유지 */
+    display: block; /* 이미지 아래 여백 제거 */
+}
+
+
+/* 세로 구분선 스타일 */
+.separator {
+    width: 2px; /* 구분선 두께 */
+    background-color: lightgray; /* 회색 구분선 */
+    height: 100%; /* 컨테이너 높이만큼 구분선 높이 설정 */
+    margin-right: 20px; /* text-container 와 간격 조절 */
+}
+
+/* 텍스트 컨테이너 스타일 */
+.text-container {
+    flex: 1;
+    max-width: 50%;
+    padding-left: 20px;
+    display: flex; /* Flexbox 레이아웃 활성화 */
+    flex-direction: column; /* 내부 요소들을 세로 방향으로 배치 */
+    justify-content: center; /* 세로 방향 (주축) 가운데 정렬 */
+}
+
+/* 주황색 박스 스타일 */
+.orange-box {
+    background-color: rgba(180, 180, 180, 0.6); /* 반투명 주황색 배경 */
+    padding: 20px;
+    border-radius: 5px; /* 박스 모서리 둥글게 (선택 사항) */
+}
+
+.orange-box h2 {
+    margin-top: 0; /* 제목 상단 마진 제거 */
+}
+

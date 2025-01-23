@@ -55,7 +55,7 @@ def load_user(user_id):
 @app.route('/')
 def index():
     cuisines = Cuisine.query.all()
-    new_recipes = Recipe.query.order_by(Recipe.id.desc()).limit(5).all()
+    new_recipes = Recipe.query.order_by(Recipe.id.desc()).limit(5).all() # 이 코드로 최근에 올라온 음식 id 겟
     food_ani_images = FoodAni.query.all()
     return render_template('index.html', cuisines=cuisines, new_recipes=new_recipes, food_ani_images=food_ani_images)
 
