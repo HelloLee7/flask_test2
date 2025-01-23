@@ -204,3 +204,8 @@ body {
     font-family: 'dimibang_new', sans-serif;
 }
 
+.recipe-grid {
+    display: flex; /*recipe 왼쪽으로 가즈아*/
+    flex-wrap: wrap;
+    justify-content: start;
+}
